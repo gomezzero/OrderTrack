@@ -7,6 +7,8 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using OrderTrack.Config;
 using OrderTrack.Data;
+using OrderTrack.Repositories;
+using OrderTrack.Services;
 
 Env.Load();
 
@@ -26,7 +28,7 @@ builder.Services.AddDbContext<MyDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.Parse("8.0.20-mysql")));
 
 // Registrar IUserRepository con su implementación UserServices
-// builder.Services.AddScoped<IEmployee, EmployeeServices>();
+builder.Services.AddScoped<ICategory, CategoryServices>();
 
 
 // we enable the option that allows us to JWT
