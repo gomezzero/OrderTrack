@@ -16,6 +16,8 @@ namespace OrderTrack.Repositories
         // GET
         Task<IEnumerable<Category>> GetAll();
         Task<Category?> GetById(int id);
+        Task<bool> CheckExistence(int id);
+
 
     }
 }

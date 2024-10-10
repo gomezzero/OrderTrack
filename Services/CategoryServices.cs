@@ -1,7 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 using Microsoft.EntityFrameworkCore;
 using OrderTrack.Data;
 using OrderTrack.Models;
@@ -97,6 +94,18 @@ namespace OrderTrack.Services
         public async Task<Category?> GetById(int id)
         {
             return await _context.Categories.FindAsync(id);
+        }
+
+        public async Task<bool> CheckExistence(int id)
+        {
+            try
+            {
+                return await _context.Categories.AnyAsync(u => u.Id == id);
+            }
+            catch (Exception exi)
+            {
+                throw new Exception("ocurrio un error a la hora de busacar la categoria", exi);
+            }
         }
 
     }
