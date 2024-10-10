@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OrderTrack.Data;
 
@@ -10,9 +11,11 @@ using OrderTrack.Data;
 namespace OrderTrack.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    partial class MyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241010164406_changerequeriment")]
+    partial class changerequeriment
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -43,38 +46,6 @@ namespace OrderTrack.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("categories");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Description = "devices and gadgets for everyday use",
-                            Name = "electronics"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Description = "equipment and tools for home improvement",
-                            Name = "home appliances"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Description = "literature and educational materials",
-                            Name = "books"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Description = "clothing and accessories",
-                            Name = "fashion"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Description = "games and entertainment for children",
-                            Name = "toys"
-                        });
                 });
 #pragma warning restore 612, 618
         }
