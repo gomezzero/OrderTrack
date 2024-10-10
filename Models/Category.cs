@@ -15,12 +15,12 @@ namespace OrderTrack.Models
         public string Name { get; set; }
 
         [Column("descriptions")]
-        public string? Description { get; set; }
+        public string Description { get; set; }
 
-        public Category(string name, string? descriptions)
+        public Category(string name, string description)
         {
             Name = name.ToLower().Trim();
-            Description = descriptions.ToLower().Trim();
+            Description = description.ToLower().Trim();
         }
 
     }

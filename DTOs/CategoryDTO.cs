@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OrderTrack.DTOs
 {
-    public class Category
+    public class CategoryDTO
     {
         [Required]
         [MaxLength(20, ErrorMessage="Name must be 10 characters or less")]
