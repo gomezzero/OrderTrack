@@ -60,18 +60,20 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
-c.SwaggerDoc("v1", new OpenApiInfo { Title = "PruebaNet", Version = "v1" });
+    c.EnableAnnotations();
 
-c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-{
-    Description = "JWT Authorization header using the Bearer scheme. Example: \"Bearer {token}\"",
-    Name = "Authorization",
-    In = ParameterLocation.Header,
-    Type = SecuritySchemeType.Http,
-    Scheme = "Bearer"
-});
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "PruebaNet", Version = "v1" });
 
-c.AddSecurityRequirement(new OpenApiSecurityRequirement
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Description = "JWT Authorization header using the Bearer scheme. Example: \"Bearer {token}\"",
+        Name = "Authorization",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.Http,
+        Scheme = "Bearer"
+    });
+
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
         {
             new OpenApiSecurityScheme

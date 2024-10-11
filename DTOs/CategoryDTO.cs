@@ -15,6 +15,6 @@ namespace OrderTrack.DTOs
 
         [Required]
         [MaxLength(300, ErrorMessage="Name must be 10 characters or less")]
-        public string Description { get; set; }
+        public required string Description { get; set; }
     }
 }

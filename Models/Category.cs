@@ -11,10 +11,12 @@ namespace OrderTrack.Models
         [Column("id")]
         public int Id { get; set; }
 
-        [Column("names")]
+        [Column("name")]
+        [MaxLength(20)]
         public string Name { get; set; }
 
-        [Column("descriptions")]
+        [Column("description")]
+        [MaxLength(300)]
         public string Description { get; set; }
 
         public Category(string name, string description)
