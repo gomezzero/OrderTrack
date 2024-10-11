@@ -10,6 +10,7 @@ namespace OrderTrack.Data
     public class MyDbContext : DbContext
     {
         public DbSet<Category> Categories { get; set; }
+        public DbSet<User> Users { get; set; }
         public MyDbContext(DbContextOptions<MyDbContext> options) : base(options)
         {
         }

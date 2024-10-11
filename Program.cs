@@ -29,6 +29,7 @@ builder.Services.AddDbContext<MyDbContext>(options =>
 
 // Registrar IUserRepository con su implementación UserServices
 builder.Services.AddScoped<ICategory, CategoryServices>();
+builder.Services.AddScoped<IUser, UserServices>();
 
 
 // we enable the option that allows us to JWT

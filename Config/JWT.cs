@@ -2,18 +2,19 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
+using OrderTrack.Models;
 
 namespace OrderTrack.Config
 {
     public class JWT
     {
-        public static string GenerateJwtToken(Employee employee)
+        public static string GenerateJwtToken(User user)
         {
-            // var claims = new[]
-            // {
-            //     new Claim(ClaimTypes.NameIdentifier,employee.Id.ToString()),
-            //     new Claim(ClaimTypes.Email,employee.Email),
-            // };
+            var claims = new[]
+            {
+                new Claim(ClaimTypes.NameIdentifier,user.Id.ToString()),
+                new Claim(ClaimTypes.Email,user.Email),
+            };
             var jwtKey = Environment.GetEnvironmentVariable("JWT_KEY");
             var jwtIssuer = Environment.GetEnvironmentVariable("JWT_ISSUER");
             var jwtAudience = Environment.GetEnvironmentVariable("JWT_AUDIENCE");
@@ -31,16 +32,12 @@ namespace OrderTrack.Config
             var token = new JwtSecurityToken(
                 issuer: jwtIssuer,
                 audience: jwtAudience,
-                // claims: claims,
+                claims: claims,
                 expires: DateTime.UtcNow.AddMinutes(Convert.ToDouble(jwtExpiresIn)),
                 signingCredentials: credentials
             );
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
-    }
-
-    public class Employee
-    {
     }
 }

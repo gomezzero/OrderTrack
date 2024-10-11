@@ -6,15 +6,9 @@ using OrderTrack.Repositories;
 
 namespace OrderTrack.Services
 {
-    public class CategoryServices : ICategory
+    public class CategoryServices(MyDbContext context) : ICategory
     {
-        private readonly MyDbContext _context;
-
-        public CategoryServices(MyDbContext context)
-        {
-            _context = context;
-        }
-
+        private readonly MyDbContext _context = context;
 
         public async Task Add(Category category)
         {
