@@ -22,11 +22,11 @@ namespace OrderTrack.Controllers.V1.Categorys
 
             if (!exists)
             {
-                return NotFound();
+                return NotFound($"La categoria N° {id} no existe en la base de datos");
             }
 
             await _category.Delete(id);
-            return NoContent();
+            return Ok($"La categoria N°{id} fue eliminada");
         }
     }
 }

@@ -29,6 +29,7 @@ namespace OrderTrack.Models
         public string Address { get; set; }
 
         [Column("password")]
+        [Required]
         [MaxLength(80)]
         [MinLength(4)]
         public string Password { get; set; }
@@ -38,7 +39,7 @@ namespace OrderTrack.Models
             Name = name.ToLower().Trim();
             Email = email.ToLower().Trim();
             Address = address.ToLower().Trim();
-            Password = password.Trim();
+            Password = password;
         }
     }
 }

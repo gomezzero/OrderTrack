@@ -11,6 +11,8 @@ namespace OrderTrack.Repositories
 
         // GET
         Task<IEnumerable<User>> GetAll();
+        Task<User?> GetById(int id);
+
         Task<bool> CheckExistence(int id);
 
     }

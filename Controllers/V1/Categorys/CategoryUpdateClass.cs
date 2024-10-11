@@ -29,7 +29,7 @@ namespace OrderTrack.Controllers.V1.Categorys
 
             if (!checkCategory)
             {
-                return NotFound();
+                return NotFound($"la categoria N°{id} no existe en la base de datos");
             }
 
             var category = await _category.GetById(id);

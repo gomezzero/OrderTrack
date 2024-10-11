@@ -98,5 +98,10 @@ namespace OrderTrack.Services
             }
         }
 
+        public async Task<User?> GetById(int id)
+        {
+            return await _context.Users.FindAsync(id);
+        }
+
     }
 }
