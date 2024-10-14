@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OrderTrack.Data;
 
@@ -10,9 +11,11 @@ using OrderTrack.Data;
 namespace OrderTrack.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    partial class MyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241014163211_fixOfcategory_id")]
+    partial class fixOfcategory_id
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -88,10 +91,6 @@ namespace OrderTrack.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int")
-                        .HasColumnName("category_id");
-
                     b.Property<string>("Description")
                         .HasMaxLength(300)
                         .HasColumnType("varchar(300)")
@@ -107,9 +106,13 @@ namespace OrderTrack.Migrations
                         .HasColumnType("int")
                         .HasColumnName("stock");
 
+                    b.Property<int>("category_id")
+                        .HasColumnType("int")
+                        .HasColumnName("category_id");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId");
+                    b.HasIndex("category_id");
 
                     b.ToTable("products");
                 });
@@ -156,7 +159,7 @@ namespace OrderTrack.Migrations
                 {
                     b.HasOne("OrderTrack.Models.Category", "Category")
                         .WithMany()
-                        .HasForeignKey("CategoryId")
+                        .HasForeignKey("category_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

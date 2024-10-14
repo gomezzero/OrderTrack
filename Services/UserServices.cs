@@ -94,7 +94,7 @@ namespace OrderTrack.Services
             }
             catch (Exception exi)
             {
-                throw new Exception("ocurrio un error a la hora de busacar la categoria", exi);
+                throw new Exception("ocurrio un error a la hora de busacar el Usuario", exi);
             }
         }
 

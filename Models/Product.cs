@@ -31,7 +31,7 @@ namespace OrderTrack.Models
         public int CategoryId { get; set; }
 
         // foreing key conection
-        [ForeignKey("category_id")]
+        [ForeignKey("CategoryId")]
         public Category Category { get; set; }
 
         public Product(string name, string? description, int stock, int categoryId)
