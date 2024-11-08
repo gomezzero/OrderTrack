@@ -22,7 +22,7 @@ namespace OrderTrack.Models
         [EmailAddress]
         [MaxLength(30)]
         public string Email { get; set; }
-
+    
         [Column("address")]
         [Required]
         [MaxLength(120)]
